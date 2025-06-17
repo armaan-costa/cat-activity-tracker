@@ -4,7 +4,7 @@ from datetime import datetime
 
 # === CONFIG =======
 SAVE_DIR = "data"
-LABEL = "sitting"
+LABEL = "resting"
 IMAGE_WIDTH = 224
 IMAGE_HEIGHT = 224
 # ==================
