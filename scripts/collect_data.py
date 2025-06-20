@@ -4,13 +4,29 @@ from datetime import datetime
 
 # === CONFIG =======
 SAVE_DIR = "data"
-LABEL = "walking"
+INIT_LABEL = "sleeping"
+NUM_LABELS = 7
 IMAGE_WIDTH = 224
 IMAGE_HEIGHT = 224
 # ==================
 
+labels = ['catloaf', 'eating', 'grooming', 'resting', 'sleeping', 'standing', 'walking']
+
+label_to_index = {
+        'catloaf' : 0,
+        'eating' : 1,
+        'grooming' : 2,
+        'resting' : 3,
+        'sleeping' : 4,
+        'standing' : 5,
+        'walking' : 6
+        }
+
+l = label_to_index[INIT_LABEL]
+label = labels[l]
+
 # Checks that the lable directory exists
-save_path = os.path.join(SAVE_DIR, LABEL)
+save_path = os.path.join(SAVE_DIR, INIT_LABEL)
 os.makedirs(save_path, exist_ok = True)
 
 cap = cv2.VideoCapture(0)
@@ -18,7 +34,7 @@ if not cap.isOpened():
     print("Cannot open the webcam...")
     exit()
 
-print(f"[I] Collecting images for label: '{LABEL}'.")
+print(f"[I] Collecting images for label: '{INIT_LABEL}'.")
 print(f"[I] Press 's' to save and image, and 'q' to quit.")
 
 while True:
@@ -37,6 +53,18 @@ while True:
         filename = os.path.join(save_path, f"{timestamp}.jpg")
         cv2.imwrite(filename, frame_resized)
         print(f"Saved pic as ... {filename}")
+    
+    elif action == ord('d'):
+        l = (l+1) % NUM_LABELS
+        label = labels[l]
+        print(f"[I] Now collecting images for label: '{label}'.")
+        save_path = os.path.join(SAVE_DIR, label)
+    
+    elif action == ord('a'):
+        l = (l-1) % NUM_LABELS
+        label = labels[l]
+        print(f"[I] Now collecting images for label: '{label}'.")
+        save_path = os.path.join(SAVE_DIR, label)
 
     elif action == ord('q'):
         print("[I] Quitting...")
