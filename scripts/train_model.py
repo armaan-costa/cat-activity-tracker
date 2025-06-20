@@ -1,5 +1,6 @@
 import os
 from torchvision import datasets, transforms, models
+from torchvision.models import ResNet18_Weights
 from torch.utils.data import DataLoader, random_split
 import torch
 import torch.nn as nn
@@ -45,7 +46,7 @@ print(f"Training size: {len(train_dataset)}, Validation size: {len(val_dataset)}
 
 # Taking ResNet18 and fine-tuning it for the data collected.
 num_classes = len(full_dataset.classes)
-model = models.resnet18(pretrained=True)
+model = models.resnet18(weights=ResNet18_Weights.DEFAULT)
 model.fc = nn.Linear(model.fc.in_features, num_classes)
 model = model.to(device)
 
