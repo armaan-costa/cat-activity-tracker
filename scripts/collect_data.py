@@ -4,7 +4,7 @@ from datetime import datetime
 
 # === CONFIG =======
 SAVE_DIR = "data"
-LABEL = "catloaf"
+LABEL = "walking"
 IMAGE_WIDTH = 224
 IMAGE_HEIGHT = 224
 # ==================
@@ -13,7 +13,7 @@ IMAGE_HEIGHT = 224
 save_path = os.path.join(SAVE_DIR, LABEL)
 os.makedirs(save_path, exist_ok = True)
 
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(0)
 if not cap.isOpened():
     print("Cannot open the webcam...")
     exit()

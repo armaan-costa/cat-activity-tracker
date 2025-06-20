@@ -16,6 +16,11 @@ MODEL_PATH = "models/cat_activity_model.pth"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+if device.type == 'cuda':
+    print(f"CUDA GPU found and being used: {torch.cuda.get_device_name(0)}")
+else:
+    print("CUDA GPU not found... \nCPU is being used.")
+
 transform = transforms.Compose([
     transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),
     transforms.ToTensor(),
