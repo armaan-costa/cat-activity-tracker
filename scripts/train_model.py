@@ -10,7 +10,7 @@ import torch.optim as optim
 DATA_DIR = "data"
 BATCH_SIZE = 16
 IMAGE_SIZE = 224
-NUM_EPOCHS = 10
+NUM_EPOCHS = 15
 LR = 0.001
 MODEL_PATH = "models/cat_activity_model.pth"
 # ========================
