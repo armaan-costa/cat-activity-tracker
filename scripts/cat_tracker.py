@@ -26,7 +26,8 @@ transform = transforms.Compose([
 
 # Load model
 model = models.resnet18(pretrained=False)
-model.fc = nn.Linear(model.fc.in_features, len(class_names))
+#model.fc = nn.Linear(model.fc.in_features, len(class_names))
+model.fc = nn.Linear(model.fc.in_features, 6)
 model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
 model = model.to(device)
 model.eval()
