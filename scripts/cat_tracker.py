@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from torchvision import transforms, models
+from torchvision.models import ResNet18_Weights
 import cv2
 from PIL import Image
 import os
@@ -25,9 +26,8 @@ transform = transforms.Compose([
 ])
 
 # Load model
-model = models.resnet18(pretrained=False)
-#model.fc = nn.Linear(model.fc.in_features, len(class_names))
-model.fc = nn.Linear(model.fc.in_features, 6)
+model = models.resnet18(weights=None)
+model.fc = nn.Linear(model.fc.in_features, len(class_names))
 model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
 model = model.to(device)
 model.eval()
