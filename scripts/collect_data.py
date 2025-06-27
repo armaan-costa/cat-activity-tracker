@@ -10,15 +10,15 @@ IMAGE_WIDTH = 224
 IMAGE_HEIGHT = 224
 # ==================
 
-labels = ['catloaf', 'eating', 'grooming', 'resting', 'sleeping', 'standing', 'walking']
+labels = ['catloaf', 'eating', 'grooming', 'resting', 'sitting', 'sleeping', 'walking']
 
 label_to_index = {
         'catloaf' : 0,
         'eating' : 1,
         'grooming' : 2,
         'resting' : 3,
-        'sleeping' : 4,
-        'standing' : 5,
+        'sitting' : 4,
+        'sleeping' : 5,
         'walking' : 6
         }
 
@@ -72,5 +72,3 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
-
-
