@@ -34,6 +34,8 @@ model.eval()
 
 # Open webcam
 cap = cv2.VideoCapture(0)
+cv2.namedWindow("Cat Activity Tracker", cv2.WINDOW_NORMAL)
+cv2.resizeWindow("Cat Activity Tracker", 1920, 1080)
 print("[INFO] Press 'q' to quit.")
 
 while True:
@@ -66,7 +68,8 @@ while True:
 
     # Put white text over it
     cv2.putText(frame, text, (x, y), font, scale, (255, 255, 255), thickness)
-
+    
+    frame = cv2.resize(frame, (1920,1080))
     cv2.imshow("Cat Activity Tracker", frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
