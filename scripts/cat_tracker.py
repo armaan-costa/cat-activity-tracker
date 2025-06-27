@@ -52,9 +52,20 @@ while True:
         pred = output.argmax(1).item()
         label = class_names[pred]
 
-    # Show prediction
-    cv2.putText(frame, f"Prediction: {label}", (10, 30),
-                cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    text = f"Prediction: {label}"
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    scale = 1
+    thickness = 2
+
+    # Calculate size of text
+    (text_width, text_height), baseline = cv2.getTextSize(text, font, scale, thickness)
+
+    # Background rectangle position
+    x, y = 10, 30  # top-left corner of text
+    cv2.rectangle(frame, (x - 5, y - text_height - 5), (x + text_width + 5, y + baseline + 5), (0, 0, 0), -1)
+
+    # Put white text over it
+    cv2.putText(frame, text, (x, y), font, scale, (255, 255, 255), thickness)
 
     cv2.imshow("Cat Activity Tracker", frame)
 
