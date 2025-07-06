@@ -33,7 +33,7 @@ model = model.to(device)
 model.eval()
 
 # Open webcam
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(2)
 cv2.namedWindow("Cat Activity Tracker", cv2.WINDOW_NORMAL)
 cv2.resizeWindow("Cat Activity Tracker", 1920, 1080)
 print("[INFO] Press 'q' to quit.")
@@ -54,7 +54,7 @@ while True:
         pred = output.argmax(1).item()
         label = class_names[pred]
 
-    text = f"Prediction: {label}"
+    text = f"{label}"
     font = cv2.FONT_HERSHEY_SIMPLEX
     scale = 1
     thickness = 2
