@@ -9,7 +9,7 @@ import os
 # ==== CONFIG ============
 IMAGE_SIZE = 224
 MODEL_PATH = "models/cat_activity_model.pth"
-DATA_DIR = "data"  # For class names from ImageFolder
+DATA_DIR = "data"  # For class names
 # ========================
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -17,7 +17,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # Reconstruct label names
 class_names = sorted(os.listdir(DATA_DIR))
 
-# Define transforms (same as training!)
 transform = transforms.Compose([
     transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),
     transforms.ToTensor(),
@@ -25,14 +24,12 @@ transform = transforms.Compose([
                          std=[0.229, 0.224, 0.225])
 ])
 
-# Load model
 model = models.resnet18(weights=None)
 model.fc = nn.Linear(model.fc.in_features, len(class_names))
 model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
 model = model.to(device)
 model.eval()
 
-# Open webcam
 cap = cv2.VideoCapture(2)
 cv2.namedWindow("Cat Activity Tracker", cv2.WINDOW_NORMAL)
 cv2.resizeWindow("Cat Activity Tracker", 1920, 1080)
@@ -62,11 +59,10 @@ while True:
     # Calculate size of text
     (text_width, text_height), baseline = cv2.getTextSize(text, font, scale, thickness)
 
-    # Background rectangle position
+    # Highlight position
     x, y = 10, 30  # top-left corner of text
     cv2.rectangle(frame, (x - 5, y - text_height - 5), (x + text_width + 5, y + baseline + 5), (0, 0, 0), -1)
 
-    # Put white text over it
     cv2.putText(frame, text, (x, y), font, scale, (255, 255, 255), thickness)
     
     frame = cv2.resize(frame, (1920,1080))
