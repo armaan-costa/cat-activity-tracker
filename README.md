@@ -8,6 +8,10 @@ I built this project to learn PyTorch and practice building a model training scr
 ---
 
 ## 🎥 Demo
+[![YouTube Link](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)]([https://www.youtube.com/watch?v=YOUR_VIDEO_ID](https://www.youtube.com/watch?v=aLzh6RstDZg))
+
+![ash-sleep](https://github.com/user-attachments/assets/8201c078-08d8-47fc-8e72-014267fe1153)
+![ore-grooming](https://github.com/user-attachments/assets/20d6ae4a-a7e1-4314-9d3d-f6186d068a36)
 
 ---
 
