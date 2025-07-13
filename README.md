@@ -12,7 +12,7 @@ This project is open to contributions if you want to try and make the tracker do
 ---
 
 ## 🎥 Demo
-[![Watch on YouTube](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)]([https://www.youtube.com/watch?v=YOUR_VIDEO_ID](https://www.youtube.com/watch?v=aLzh6RstDZg)) | [Watch on Twitter/X](https://x.com/armaancosta/status/1943174411001151987)
+[Watch on YouTube](https://youtu.be/aLzh6RstDZg?si=TQOziImodNNM5cj8) | [Watch on Twitter/X](https://x.com/armaancosta/status/1943174411001151987)
 
 ![ash-sleep](https://github.com/user-attachments/assets/8201c078-08d8-47fc-8e72-014267fe1153)
 ![ore-grooming](https://github.com/user-attachments/assets/20d6ae4a-a7e1-4314-9d3d-f6186d068a36)
