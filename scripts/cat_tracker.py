@@ -6,15 +6,12 @@ import cv2
 from PIL import Image
 import os
 
-# ==== CONFIG ============
 IMAGE_SIZE = 224
 MODEL_PATH = "models/cat_activity_model.pth"
-DATA_DIR = "data"  # For class names
-# ========================
+DATA_DIR = "data"  
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Reconstruct label names
 class_names = sorted(os.listdir(DATA_DIR))
 
 transform = transforms.Compose([
@@ -56,10 +53,8 @@ while True:
     scale = 1
     thickness = 2
 
-    # Calculate size of text
     (text_width, text_height), baseline = cv2.getTextSize(text, font, scale, thickness)
 
-    # Highlight position
     x, y = 10, 30  # top-left corner of text
     cv2.rectangle(frame, (x - 5, y - text_height - 5), (x + text_width + 5, y + baseline + 5), (0, 0, 0), -1)
 
@@ -73,3 +68,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
